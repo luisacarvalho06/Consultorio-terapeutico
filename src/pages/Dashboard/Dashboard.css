@@ -6,3 +6,37 @@
 .main-content {
   flex: 1;
 }
+
+.dashboard-container {
+  padding: 30px;
+  width: 100%;
+}
+
+.dashboard-container h1 {
+  color: #0e2f49;
+  margin-bottom: 25px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.card h3 {
+  color: #666;
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0e2f49;
+  margin-top: 10px;
+}

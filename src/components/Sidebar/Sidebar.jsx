@@ -12,79 +12,116 @@ import {
   FaSignOutAlt
 } from "react-icons/fa";
 
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import "./Sidebar.css";
 
 function Sidebar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
   return (
-    <aside className="sidebar">
+    <>
+      <aside className="sidebar">
 
-      <div className="sidebar-header">
-        <h2>Consultório Terapêutico</h2>
-        <p>Fisioterapia • RPG • Acupuntura</p>
-      </div>
+        <div className="sidebar-header">
+          <h2>Consultório Terapêutico</h2>
+          <p>Fisioterapia • RPG • Acupuntura</p>
+        </div>
 
-      <nav className="sidebar-menu">
+        <nav className="sidebar-menu">
 
-        <a href="./Dashboard">
-          <FaHome />
-          <span>Dashboard</span>
-        </a>
+          <Link to="/dashboard"className={location.pathname === "/dashboard" ? "active" : ""} >
+            <FaHome />
+            <span>Dashboard</span>
+          </Link>
 
-        <a href="./Agenda">
-          <FaCalendarAlt />
-          <span>Agenda</span>
-        </a>
+          <Link to="/dashboard/agenda" className={location.pathname === "/dashboard/agenda" ? "active" : ""} >
+            <FaCalendarAlt />
+            <span>Agenda</span>
+          </Link>
 
-        <a href="#">
-          <FaUsers />
-          <span>Pacientes</span>
-        </a>
+          <Link to="/dashboard/pacientes" className={location.pathname === "/dashboard/pacientes" ? "active" : ""} >
+            <FaUsers />
+            <span>Pacientes</span>
+          </Link>
 
-        <a href="#">
-          <FaUserMd />
-          <span>Profissionais</span>
-        </a>
+          <Link to="/dashboard/profissionis" className={location.pathname === "/dashboard/profissionais" ? "active" : ""} >
+            <FaUserMd />
+            <span>Profissionais</span>
+          </Link>
 
-        <a href="#">
-          <FaSpa />
-          <span>Serviços</span>
-        </a>
+          <Link to="/dashboard/servicos" className={location.pathname === "/dashboard/servicos" ? "active" : ""} >
+            <FaSpa />
+            <span>Serviços</span>
+          </Link>
 
-        <a href="#">
-          <FaClipboardList />
-          <span>Atendimentos</span>
-        </a>
+          <Link to="/dashboard/atendimentos" className={location.pathname === "/dashboard/atendimentos" ? "active" : ""} >
+            <FaClipboardList />
+            <span>Atendimentos</span>
+          </Link>
 
-        <a href="#">
-          <FaFileMedical />
-          <span>Prontuários</span>
-        </a>
+          <Link to="/dashboard/prontuarios" className={location.pathname === "/dashboard/prontuarios" ? "active" : ""} >
+            <FaFileMedical />
+            <span>Prontuários</span>
+          </Link>
 
-        <a href="#">
-          <FaDollarSign />
-          <span>Financeiro</span>
-        </a>
+          <Link to="/dashboard/financeiro" className={location.pathname === "/dashboard/financeiro" ? "active" : ""} >
+            <FaDollarSign />
+            <span>Financeiro</span>
+          </Link>
 
-        <a href="#">
-          <FaChartBar />
-          <span>Relatórios</span>
-        </a>
+          <Link to="/dashboard/configuracoes" className={location.pathname === "/dashboard/configuracoes" ? "active" : ""} >
+            <FaCog />
+            <span>Configurações</span>
+          </Link>
 
-        <a href="#">
-          <FaCog />
-          <span>Configurações</span>
-        </a>
+        </nav>
 
-      </nav>
+        <div className="sidebar-footer">
+          <button
+            className="logout-btn"
+            onClick={() => setShowLogoutModal(true)}
+          >
+            <FaSignOutAlt />
+            <span>Sair</span>
+          </button>
+        </div>
 
-      <div className="sidebar-footer">
-        <a href="#">
-          <FaSignOutAlt />
-          <span>Sair</span>
-        </a>
-      </div>
+      </aside>
 
-    </aside>
+      {showLogoutModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+
+            <h3>Confirmar saída</h3>
+
+            <p>Tem certeza que deseja sair do sistema?</p>
+
+            <div className="modal-buttons">
+
+              <button
+                className="cancel-btn"
+                onClick={() => setShowLogoutModal(false)}
+              >
+                Cancelar
+              </button>
+
+              <button
+                className="confirm-btn"
+                onClick={() => navigate("/")}
+              >
+                Sair
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
