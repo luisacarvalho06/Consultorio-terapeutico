@@ -1,0 +1,32 @@
+.servicos-page {
+  padding: 20px;
+}
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.servico-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.servico-card:hover {
+  transform: translateY(-4px);
+}
+
+.servico-card h2 {
+  color: #0e2f49;
+  margin-bottom: 15px;
+}
+
+.servico-card p {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.5;
+}

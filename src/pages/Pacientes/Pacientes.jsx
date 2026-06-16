@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Pacientes.css";
-
+import { useClinica } from "../../context/ClinicaContext";
 import PacienteTabela from "./PacienteTabela";
 import PacienteModal from "./PacienteModal";
 
@@ -8,7 +8,7 @@ function Pacientes() {
 
   const [showModal, setShowModal] = useState(false);
 
-  const [pacientes, setPacientes] = useState([]);
+  const { pacientes, setPacientes } = useClinica();
 
   const [pesquisa, setPesquisa] = useState("");
 
@@ -47,16 +47,20 @@ function Pacientes() {
           setPesquisa(e.target.value)
         }
       />
+
       <div className="tabela-container">
-      <PacienteTabela
-        pacientes={pacientesFiltrados}
-        setPacientes={setPacientes}
-        pacientesOriginais={pacientes}
-        onEditar={(paciente) => {
-          setPacienteEditando(paciente);
-          setShowModal(true);
-        }}
-      />
+
+        <PacienteTabela
+          pacientes={pacientesFiltrados}
+          setPacientes={setPacientes}
+          pacientesOriginais={pacientes}
+          onEditar={(paciente) => {
+            setPacienteEditando(paciente);
+            setShowModal(true);
+          }}
+        />
+
+      </div>
 
       {showModal && (
         <PacienteModal
@@ -66,10 +70,9 @@ function Pacientes() {
           pacienteEditando={pacienteEditando}
         />
       )}
-      </div>
 
     </div>
   );
 }
 
-export default Pacientes;;
+export default Pacientes;
