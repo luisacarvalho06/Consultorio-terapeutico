@@ -1,9 +1,10 @@
 function AtendimentoTabela({
-  atendimentos,
-  onEditar,
-  setAtendimentos,
-  excluirAtendimento
-})  {
+    atendimentos,
+    onEditar,
+    setAtendimentos,
+    excluirAtendimento,
+    onAbrirProntuario
+}) {
 
     return (
         <table className="table">
@@ -72,9 +73,10 @@ function AtendimentoTabela({
                         <td>
 
                             <button
-                                className="btn-prontuario"
+                                className="prontuario-btn"
+                                 onClick={() => onAbrirProntuario(atendimento)}
                             >
-                                Abrir
+                                📋 Abrir
                             </button>
 
                         </td>

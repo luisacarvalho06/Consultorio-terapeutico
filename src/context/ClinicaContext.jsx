@@ -3,9 +3,8 @@ import { createContext, useContext, useState } from "react";
 const ClinicaContext = createContext();
 
 export function ClinicaProvider({ children }) {
-
   const [pacientes, setPacientes] = useState([]);
-
+  const [prontuarios, setProntuarios] = useState([]);
   const [profissionais] = useState([
     {
       id: 1,
@@ -24,6 +23,8 @@ export function ClinicaProvider({ children }) {
       value={{
         pacientes,
         setPacientes,
+        prontuarios,
+        setProntuarios,
         profissionais
       }}
     >

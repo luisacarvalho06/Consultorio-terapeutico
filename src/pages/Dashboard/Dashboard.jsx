@@ -11,6 +11,7 @@ import Servicos from "../Servicos/Servicos";
 import Financeiro from "../Financeiro/Financeiro";
 import Whatsapp from "../Whatsapp/Whatsapp";
 import Atendimentos from "../Atendimentos/Atendimentos";
+import Prontuarios from "../Prontuarios/Prontuarios";
 
 function Dashboard() {
   return (
@@ -64,6 +65,7 @@ function Dashboard() {
             <Route path="financeiro" element={<Financeiro />} />
             <Route path="whatsapp" element={<Whatsapp />} />
             <Route path="atendimentos" element={<Atendimentos />} />
+            <Route path="prontuarios" element={<Prontuarios />} />
 
           </Routes>
         </div>
