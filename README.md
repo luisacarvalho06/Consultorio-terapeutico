@@ -174,7 +174,7 @@ src/
 
 ---
 
-## 👩‍💻 Desenvolvedoras
+## 👩‍💻 Desenvolvedora
 
 | Nome | Matrícula |
 |---|---|
